@@ -9,3 +9,24 @@
 # a string returned from invoking format(number, width). Here is a sample run
 
 def format(number, width):
+
+    digit = 0
+    temp = number
+    if temp == 0:
+        digit = 1
+    while temp > 0:
+        temp = temp // 10
+        digit += 1
+
+    result = str(number)
+    for i in range(width - digit):
+        result = "0" + result
+    return result
+
+def main():
+    number = eval(input("Enter a number: "))
+    width = eval(input("Enter the width: "))
+
+    print("The formatted number is: ", format(number, width))
+
+main()
